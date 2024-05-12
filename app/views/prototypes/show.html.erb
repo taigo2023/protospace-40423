@@ -47,12 +47,14 @@
           <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
         <% end %>
         <ul class="comments_lists">
-           <% @comments.each do |comment| %>
-             <li class="comments_list">
-               <%= comment.content %>
-               ( <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %> ) 
-             </li>
-           <% end %>
+          <% if @comments.present? %>
+            <% @comments.each do |comment| %>
+              <li class="comments_list">
+                <%= comment.content %>
+                ( <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %> )
+              </li>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
